@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    background-color: rgba(255, 255, 255, 0.788);
+}
+nav
+{
+    display: flex;
+    width: 100%;
+    background-color: rgb(240, 248, 255);
+    padding: 15px;
+}
+.parent
+{
+    width: 100%;
+    min-height: 90%;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.partie_choix_faculte
+{
+    background-color: rgb(240, 248, 255);
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+}
+.choix_div1
+{
+    background-color: rgb(240, 248, 255);
+}
+.choix_div1,.choix_div3
+{
+    background-color: rgba(105, 101, 101, 0.788);
+}
+.partie_tableau
+{
+    display: grid;
+    grid-template-rows:25% 75%;
+}
+.choix_niveau
+{
+    display: grid;
+    grid-template-columns: 85% 15%;
+}
+.tableau
+{
+   
+}
+.niveau 
+{
+    
+}
+.tableau_des_niveau
+{
+    height: 75%;
+    background-color: rgba(105, 101, 101, 0.788);
+    width: 50%;
+    position: relative;
+    left: 5%;
+}
+table
+{
+    height: 100%;
+}
+#select1
+{
+    width: 100%;
+}
+#select2
+{
+    width: 170px;
+}
