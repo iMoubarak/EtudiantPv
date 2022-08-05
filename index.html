@@ -7,7 +7,7 @@
     </head>
     <body>
         <nav>
-            <h2>MI-GN.</h2>
+            <a href="#">Gestions Notes</a>
             <div></div>
         </nav>
         <div class="parent">
@@ -15,11 +15,11 @@
                 <div class="choix_div1">
                 </div>
                 <div class="choix_div2">
-                    <ul>FAST
-                        <li>MI</li>
-                        <li>MPC</li>
-                        <li>BGE</li>
-                    </ul>
+                    <select>
+                        <option value=""><a href="#">MI</a></option>
+                        <option value=""><a href="">MPC</a></option>>
+                        <option value=""><a href="">BGE</a></option>
+                    </select>
                 </div>
                 <div class="choix_div3"></div>
             </div>
@@ -28,26 +28,55 @@
                     <div class="niveau">
                         <h2>Saisie Données</h2>
                         <div class="tableau_des_niveau">
-                            <table >
+                            <table cellspacing="10px">
                                 <tr>
                                     <td>Type de données</td>
-                                    <td><select name="type_donnee" id="select1"></select></td>
+                                    <td><select name="type_donnee" id="select1"><option>Saisie de notes</option></select></td>
+                                </tr>
+                                <tr>
+                                    <td>Matière</td>
+                                    <td><select name="type_donnee" id="select2"></select></td>
                                 </tr>
                                 <tr>
                                     <td>Periode</td>
-                                    <td><select name="" id="select2"></select><button>Précédent</button><button>Suivant</button></td>
+                                    <td><select name="" id="select3"></select></td>
                                     <td></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                     <div class="impression">
-                        <button>Terminer</button>
-                        <button>Executer la validation</button>
-                        <button>Impression</button>
+                        <div>
+                            <button class="impression_button">Terminer</button>
+                            <button class="impression_button">Executer la validation</button>
+                            <button class="impression_button">Impression</button>
+                        </div>
                     </div>
                 </div>
-                <div class="tableau"></div>
+                <div class="tableau">
+                    <table cellspacing="0px">
+                        <tr>
+                            <td>Filtre</td>
+                            <td>Matricule</td>
+                            <td>Notes</td>
+                        </tr>
+                        <tr>
+                            <td>Illa Yacouba Moubarak</td>
+                            <td>60507</td>
+                            <td><input type="text" name=""></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </body>

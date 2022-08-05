@@ -2,17 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 body
 {
-    background-color: rgba(255, 255, 255, 0.788);
+    background-color:rgb(253, 253, 253)
+
 }
 nav
 {
     display: flex;
     width: 100%;
-    background-color: rgb(240, 248, 255);
-    padding: 15px;
+    background-color: rgb(138, 187, 187);
+    padding: 10px;
+    box-shadow: 1px 2px 3px black;
+    position: sticky;
+    z-index: 1000;
+}
+nav a
+{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-overflow: ellipsis;
+    min-width: 1px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .parent
 {
@@ -26,19 +42,29 @@ nav
     background-color: rgb(240, 248, 255);
     display: grid;
     grid-template-rows: 10% 80% 10%;
+    cursor: col-resize;
 }
 .choix_div1
 {
-    background-color: rgb(240, 248, 255);
+    background-color: rgb(249, 251, 252);
+}
+.choix_div2 select
+{
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(138, 187, 187);
+    text-align: center;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 .choix_div1,.choix_div3
 {
-    background-color: rgba(105, 101, 101, 0.788);
+    background-color: rgba(226, 223, 223, 0.87);
 }
 .partie_tableau
 {
     display: grid;
-    grid-template-rows:25% 75%;
+    grid-template-rows:30% 70%;
 }
 .choix_niveau
 {
@@ -49,27 +75,76 @@ nav
 {
    
 }
-.niveau 
+.niveau h2
 {
-    
+    font-weight: 500;
+    opacity: 80%;
+    font-size: x-large;
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 .tableau_des_niveau
 {
-    height: 75%;
-    background-color: rgba(105, 101, 101, 0.788);
-    width: 50%;
+    height: 65%;
+    width: 45%;
     position: relative;
     left: 5%;
+    border: 1px solid #a4d2a3;
+    background-color: rgb(240, 248, 255);
+    border-radius: 5px;
 }
-table
+.tableau_des_niveau table
 {
-    height: 100%;
+    
+    width: 90%;
+    position: relative;
+    left: 4%;
 }
-#select1
+#select1,#select2,#select3
 {
     width: 100%;
+    border: none;
+    background-color: rgb(240, 248, 255);
+    border-bottom: 1px dotted black;
 }
-#select2
+.impression div
 {
-    width: 170px;
+    position: relative;
+    top: 30%;
+    right: 20px;
+}
+.impression_button
+{
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 2px;
+    border-radius: 10px;
+    border: 1px solid rgb(253, 253, 253);
+    background-color: rgb(240, 248, 255);
+    cursor: pointer;
+}
+.impression_button:hover
+{
+    box-shadow: 2px 2px 2px rgb(138, 187, 187);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.tableau
+{
+    margin-top: 100px;
+    
+}
+.tableau table
+{
+    margin-left: 4%;
+    background-color: rgb(138, 187, 187);
+
+}
+.tableau td
+{
+    border: 1px solid black;
+    margin: 0px;
+    text-align: center;
+    padding: 10px;
 }
