@@ -86,13 +86,18 @@ nav a
 }
 .tableau_des_niveau
 {
+<<<<<<< HEAD
     height: 70%;
+=======
+    height: 65%;
+>>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
     width: 45%;
     position: relative;
     left: 5%;
     border: 1px solid #a4d2a3;
     background-color: rgb(240, 248, 255);
     border-radius: 5px;
+<<<<<<< HEAD
 }
 .tableau_des_niveau table
 {
@@ -116,9 +121,37 @@ nav a
     right: 20px;
 }
 .impression_button
+=======
+}
+.tableau_des_niveau table
+{
+    
+    width: 90%;
+    position: relative;
+    left: 4%;
+}
+#select1,#select2,#select3
+>>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
 {
     padding: 8px;
     width: 100%;
+<<<<<<< HEAD
+=======
+    border: none;
+    background-color: rgb(240, 248, 255);
+    border-bottom: 1px dotted black;
+}
+.impression div
+{
+    position: relative;
+    top: 30%;
+    right: 20px;
+}
+.impression_button
+{
+    padding: 8px;
+    width: 100%;
+>>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
     text-align: center;
     margin-bottom: 2px;
     border-radius: 10px;
@@ -133,6 +166,7 @@ nav a
 }
 .tableau
 {
+<<<<<<< HEAD
     margin-top: 50px;
 }
 .tableau table
@@ -160,6 +194,23 @@ nav a
     width: 35px;
     padding: 7px;
     border:none;
+=======
+    margin-top: 100px;
+    
+}
+.tableau table
+{
+    margin-left: 4%;
+    background-color: rgb(138, 187, 187);
+
+}
+.tableau td
+{
+    border: 1px solid black;
+    margin: 0px;
+    text-align: center;
+    padding: 10px;
+>>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
 }
 .filtre_recherche
 {
