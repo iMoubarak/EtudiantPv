@@ -2,22 +2,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 body
 {
-    background-color:rgb(253, 253, 253)
-
+    background-image: linear-gradient(rgb(65, 84, 105),rgb(17, 17, 24));
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    height:90%;
 }
 nav
 {
-    display: flex;
+    display: grid;
+    grid-template-columns: 15% 75%;
     width: 100%;
-    background-color: rgb(138, 187, 187);
-    padding: 10px;
-    box-shadow: 1px 2px 3px black;
+    background-image: linear-gradient(rgb(65, 84, 105),rgb(17, 17, 24));
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    height: 50px;
+    box-shadow: 0px 0px 1px black;
     position: sticky;
     z-index: 1000;
+}
+.logo
+{
+    height: 100%;
+    background-color:rgb(17, 17, 24) ;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.logo a span
+{
+    color: rgba(144, 194, 250,0.656);
 }
 nav a
 {
@@ -33,33 +53,38 @@ nav a
 .parent
 {
     width: 100%;
-    min-height: 90%;
+    height: 100%;
     display: grid;
     grid-template-columns: 15% 85%;
 }
 .partie_choix_faculte
 {
-    background-color: rgb(240, 248, 255);
-    display: grid;
-    grid-template-rows: 10% 80% 10%;
-    cursor: col-resize;
-}
-.choix_div1
-{
-    background-color: rgb(249, 251, 252);
-}
-.choix_div2 select
-{
-    width: 100%;
-    padding: 8px;
-    background-color: rgb(138, 187, 187);
+    background-color:rgb(17, 17, 24);    
+    display:grid;
+    grid-template-rows: 90% 10%;
     text-align: center;
-    margin-top: 5px;
-    border-radius: 5px;
 }
-.choix_div1,.choix_div3
+
+.choix_div 
 {
-    background-color: rgba(226, 223, 223, 0.87);
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    text-align:start;
+}
+.choix_div ul
+{
+    list-style: none;
+}
+.choix_div ul li
+{
+    margin-top: 20px;
+}
+.choix_div ul li a
+{
+    color:rgba(144, 194, 250,0.656) ;
+    font-size: medium;
+
 }
 .partie_tableau
 {
@@ -68,12 +93,21 @@ nav a
 }
 .choix_niveau
 {
-    display: grid;
-    grid-template-columns: 85% 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.tableau
+.niveau
 {
-   
+    margin-left: 4%;
+}
+.niveau ul
+{
+   list-style: none;
+}
+.niveau ul li
+{
+    display: inline-block;
 }
 .niveau h2
 {
@@ -86,18 +120,17 @@ nav a
 }
 .tableau_des_niveau
 {
-<<<<<<< HEAD
     height: 70%;
-=======
-    height: 65%;
->>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
     width: 45%;
     position: relative;
     left: 5%;
     border: 1px solid #a4d2a3;
     background-color: rgb(240, 248, 255);
     border-radius: 5px;
-<<<<<<< HEAD
+}
+.log_out
+{
+    color: rgba(144, 194, 250,0.656);
 }
 .tableau_des_niveau table
 {
@@ -120,44 +153,25 @@ nav a
     top: 38%;
     right: 20px;
 }
-.impression_button
-=======
-}
-.tableau_des_niveau table
+a
 {
-    
-    width: 90%;
-    position: relative;
-    left: 4%;
+    text-decoration: none;
 }
-#select1,#select2,#select3
->>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
+.button_p
 {
-    padding: 8px;
-    width: 100%;
-<<<<<<< HEAD
-=======
-    border: none;
-    background-color: rgb(240, 248, 255);
-    border-bottom: 1px dotted black;
-}
-.impression div
-{
-    position: relative;
-    top: 30%;
-    right: 20px;
-}
-.impression_button
-{
-    padding: 8px;
-    width: 100%;
->>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
-    text-align: center;
-    margin-bottom: 2px;
     border-radius: 10px;
-    border: 1px solid rgb(253, 253, 253);
-    background-color: rgb(240, 248, 255);
+    background-color: rgba(144, 193, 250, 0.656);
+}
+.button,.button_p
+{
+    padding: 8px;
+    width: 80%;
+    text-align: center;
     cursor: pointer;
+    font-size: medium;
+    color: white;
+    font-weight: 500;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .impression_button:hover
 {
@@ -166,51 +180,35 @@ nav a
 }
 .tableau
 {
-<<<<<<< HEAD
-    margin-top: 50px;
+    width: 100%;
 }
 .tableau table
 {
     margin-left: 4%;
-    border: 1px solid rgba(0, 0, 0, 0.308);
-    background-color: rgb(240, 248, 255);
-    width: 75%;
+    width: 60%;
     letter-spacing: 1px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .tableau td
 {
-    border-bottom: 1px dotted black;
     margin: 0px;
     text-align: center;
     padding: 10px;
+    border-bottom: 1px solid rgba(17, 17, 24, 0.371);
 }
 .titre_tableau
 {
-    background-color: rgb(138, 187, 187);
+    background-color: rgba(17, 17, 24, 0.743);
+    color: rgba(144, 193, 250, 0.542);
 }
 .case_saisi_note
 {
     width: 35px;
-    padding: 7px;
+    padding: 3px;
     border:none;
-=======
-    margin-top: 100px;
-    
-}
-.tableau table
-{
-    margin-left: 4%;
-    background-color: rgb(138, 187, 187);
-
-}
-.tableau td
-{
-    border: 1px solid black;
-    margin: 0px;
+    background-color: rgba(17, 17, 24, 0.743);
+    color: rgba(144, 193, 250, 0.542);
     text-align: center;
-    padding: 10px;
->>>>>>> 45e2059e2530b81b99b709d0130ca026a53e967d
 }
 .filtre_recherche
 {
