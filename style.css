@@ -6,7 +6,7 @@
 }
 body
 {
-    background-image: linear-gradient(rgb(65, 84, 105),rgb(17, 17, 24));
+    background-image: linear-gradient(rgba(17, 17, 24, 0.837),rgb(17, 17, 24));
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment:fixed;
@@ -17,10 +17,7 @@ nav
     display: grid;
     grid-template-columns: 15% 75%;
     width: 100%;
-    background-image: linear-gradient(rgb(65, 84, 105),rgb(17, 17, 24));
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
+    background-image: linear-gradient(rgba(17, 17, 24, 0.837),rgb(17, 17, 24));
     height: 50px;
     box-shadow: 0px 0px 1px black;
     position: sticky;
@@ -113,7 +110,7 @@ nav a
 {
     font-weight: 500;
     opacity: 80%;
-    font-size: x-large;
+    font-size: large;
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -168,9 +165,10 @@ a
     width: 80%;
     text-align: center;
     cursor: pointer;
-    font-size: medium;
+    font-size: 12px;
+    letter-spacing: 1px;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .impression_button:hover
@@ -188,6 +186,7 @@ a
     width: 60%;
     letter-spacing: 1px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 13px;
 }
 .tableau td
 {
