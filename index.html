@@ -6,31 +6,75 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <nav>
-            <div class="logo"><a href="#">FAST-<span>GN</span></a></div>
+            <div class="logo"><a href="#" title="FAST Gestion de Note">FAST-<span>GN</span></a></div>
             <div></div>
         </nav>
         <div class="parent">
             <div class="partie_choix_faculte">  
                 <div class="choix_div">
-                    <ul>
-                        <li><a href="" >Data Type</a></li>
-                        <li><a href="">Report</a></li>
-                        <li><a href="">Admin</a></li>
+                    <ul class="menu">
+                        <li><button type="button" class="button_menuType">
+                            <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                            <span class="button_menu_titre">Type Donnée</span>
+                            <ion-icon name="caret-down-outline" class="caret_bas_typedonnee" ></ion-icon>
+                            <ion-icon name="caret-forward-outline" class="button_menu_fermer"></ion-icon>
+                        </button>
+                    </li>
+                        <li><button type="button" class="button_menu">
+                            <ion-icon name="analytics-outline"></ion-icon>
+                            <span class="button_menu_titre">Rapport</span>
+                        </button></li>
+                        <li><button type="button" class="button_menu">
+                            <ion-icon name="settings-outline"></ion-icon>
+                            <span class="button_menu_titre">Reglage</span>
+                        </button></li>
                     </ul>
                 </div>
-                <div><a href="#" class="log_out">Log out</output></a></div>
+                <div class="log_out">
+                    <button type="button" class="button_log_out">
+                        <ion-icon name="exit-outline"></ion-icon>
+                        <span class="button_log_out_titre">Se deconnecter</span>
+                    </button>
+                </div>
             </div>
             <div class="partie_tableau">
                 <div class="choix_niveau">
                     <div class="niveau">
-                            <ul>
-                                <li><a href="#" class="button_p">Section</a></li>
-                                <li><a href="#" class="button">Matière</a></li>
-                                <li><a href="#" class="button">Periode</a></li>
+                            <ul class="niv_ul">
+                                <li>
+                                    <button type="button" class="button_menu1">
+                                        <span class="button_menu_titre">Section</span>
+                                        <ion-icon name="caret-down-outline" class="caret_bas_section"></ion-icon>
+                                    </button>
+                                    <ul class="sect">
+                                        <li><a href="#">BGE</a></li>
+                                        <li><a href="#">MI</a></li>
+                                        <li><a href="#">MPC</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <button type="button" class="button_menu1">
+                                       <span class="button_menu_titre">Matière</span>
+                                       <ion-icon name="caret-down-outline" class="caret_bas_matiere"></ion-icon>
+                                    </button>
+                                </li>
+                                <li><button type="button" class="button_menu1">
+                                    <span class="button_menu_titre">Periode</span>
+                                    <ion-icon name="caret-down-outline" class="caret_bas_periode"></ion-icon>
+                                </button></li>
                             </ul>
                     </div>
-                    <div class=""><a href="#"></a>
+                    <div class="div_send_search">
+                        <ul>
+                            <li><input type="search" class="input_search" placeholder="chercher un etudiant"></li>
+                            <li><button type="button" class="button_send_search"><ion-icon name="search-outline" class="icon_search"></ion-icon></button></li>
+                            <li><button type="button" class="button_send_search"><ion-icon name="send-outline" class="icon_send"></ion-icon></button></li>
+                            <li><button type="button" class="button_send_search"><ion-icon name="print-outline" class="icon_print"></ion-icon></button></li>
+                        </ul>
+                        
                     </div>
                 </div>
                 <div class="tableau">
@@ -46,7 +90,7 @@
                             <td>1</td>
                             <td>Illa Yacouba Moubarak</td>
                             <td>60507</td>
-                            <td><input type="text" name="" class="case_saisi_note"></td>
+                            <td><input type="text" name="" class="case_saisi_note" placeholder="/20"></td>
                         </tr>
                         <tr>
                             <td></td>

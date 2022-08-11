@@ -17,10 +17,7 @@ nav
     display: grid;
     grid-template-columns: 15% 75%;
     width: 100%;
-    background-image: linear-gradient(rgb(65, 84, 105),rgb(17, 17, 24));
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
+    background: none;
     height: 50px;
     box-shadow: 0px 0px 1px black;
     position: sticky;
@@ -63,6 +60,7 @@ nav a
     display:grid;
     grid-template-rows: 90% 10%;
     text-align: center;
+    overflow: hidden;
 }
 
 .choix_div 
@@ -71,20 +69,121 @@ nav a
     justify-content: center;
     margin-top: 20%;
     text-align:start;
+    overflow: hidden;
 }
-.choix_div ul
+.menu
 {
     list-style: none;
 }
-.choix_div ul li
+.menu  li
 {
     margin-top: 20px;
+    width: 130px;
+    height: 20px;
 }
-.choix_div ul li a
+.button_menu,.button_menu1,.button_send_search,.input_search,.button_log_out,.button_menuType
 {
     color:rgba(144, 194, 250,0.656) ;
     font-size: medium;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.button_menu1,.button_send_search
+{
+    background: none;
+    color: rgb(17, 17, 24);
 
+}
+.button_menu1
+{
+    font-size: medium;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.input_search
+{
+    background-color: rgb(17, 17, 24);
+    border-radius: 5px;
+    height: 20px;
+    display: none;
+}
+.button_log_out
+{
+    background: none;
+    width: 140px;
+    margin-left: 10%;
+    height: 45%;
+}
+.button_log_out:hover
+{
+    box-shadow: 3px 0px 2px rgba(144, 194, 250,0.656);
+}
+.button_log_out:active
+{
+    box-shadow: 3px 2px 2px rgba(144, 194, 250,0.656);
+
+}
+.button_menu1:hover
+{
+   background-color: rgb(17, 17, 24);
+   color: rgba(144, 194, 250,0.656);
+   transition: all .2s;
+}
+.button_send_search:hover
+{
+    box-shadow: 1px 2px 2px rgb(17, 17, 24);
+}
+.button_send_search:active
+{
+    box-shadow: 0px 2px 2px rgba(144, 194, 250,0.656);
+}
+.button_menu,.button_menuType
+{
+    background-color: rgb(17, 17, 24);
+}
+.button_menu_titre
+{
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 100%;
+}
+.button_log_out_titre
+{
+    display:flex;
+    padding: 0 10px;
+    height: 100%;
+}
+.button_menu:hover 
+{
+    box-shadow: 3px 0px 2px rgba(144, 194, 250,0.656);
+}
+.button_menuType:hover 
+{
+    box-shadow: 3px 0px 2px rgba(144, 194, 250,0.656);
+}
+.button_menu:active 
+{
+    box-shadow: 3px 2px 2px rgba(144, 194, 250,0.656);
+}
+
+.button_menu_fermer
+{
+    display: none;
 }
 .partie_tableau
 {
@@ -97,17 +196,20 @@ nav a
     align-items: center;
     justify-content: space-between;
 }
-.niveau
+.niveau,.button_send_search
 {
     margin-left: 4%;
 }
-.niveau ul
+.niv_ul
 {
    list-style: none;
 }
-.niveau ul li
+.niv_ul li
 {
     display: inline-block;
+    width: 79px;
+    height: 20px;
+
 }
 .niveau h2
 {
@@ -117,6 +219,27 @@ nav a
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
+}
+.div_send_search ul
+{
+    list-style: none;
+}
+.div_send_search
+{
+    margin-right: 4%;
+}
+.div_send_search ul li
+{
+    display: inline-block;
+    height: 40px;
+}
+.button_send_search
+{
+    background:none;
+}
+.icon_send,.icon_search,.icon_print
+{
+    padding: 10px;
 }
 .tableau_des_niveau
 {
@@ -128,10 +251,6 @@ nav a
     background-color: rgb(240, 248, 255);
     border-radius: 5px;
 }
-.log_out
-{
-    color: rgba(144, 194, 250,0.656);
-}
 .tableau_des_niveau table
 {
     
@@ -139,14 +258,7 @@ nav a
     position: relative;
     left: 4%;
 }
-#select1,#select2,#select3
-{
-    width: 100%;
-    padding: 3px;
-    border: none;
-    background-color: rgb(240, 248, 255);
-    border-bottom: 1px dotted black;
-}
+
 .impression div
 {
     position: relative;
@@ -187,7 +299,7 @@ a
     margin-left: 4%;
     width: 60%;
     letter-spacing: 1px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
 }
 .tableau td
 {
@@ -217,4 +329,53 @@ a
     padding: 4px;
     border-radius: 15px;
     border: none;
+}
+.sect
+{
+    list-style: none;
+    position: absolute;
+    width:79px;
+    height:70px;
+    background-color: rgb(17, 17, 24);
+    display: none;
+
+}
+.sect li
+{
+    display: block;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+}
+.sect li a
+{
+    color: rgba(144, 194, 250,0.656);
+    font-size: 13px;
+    padding: 0px 10px;
+
+}
+.sect li a:hover
+{
+    border-bottom: 1px solid rgba(144, 194, 250,0.656) ;
+    border-top: 1px solid rgba(144, 194, 250,0.656) ;
+}
+.caret_bas_section:active
+{
+    background-color: rgba(144, 194, 250,0.656);
+    color: rgb(17, 17, 24);
+}
+.caret_bas_matiere:active
+{
+    background-color: rgba(144, 194, 250,0.656);
+    color: rgb(17, 17, 24);
+}
+.caret_bas_periode:active
+{
+    background-color: rgba(144, 194, 250,0.656);
+    color: rgb(17, 17, 24);
+}
+.caret_bas_typedonnee:active
+{
+    background-color: rgba(144, 194, 250,0.656);
+    color: rgb(17, 17, 24);
 }
