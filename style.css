@@ -181,7 +181,7 @@ nav a
     box-shadow: 3px 2px 2px rgba(144, 194, 250,0.656);
 }
 
-.button_menu_fermer
+.button_menu_fermer,.button_menu_fermer_section
 {
     display: none;
 }
@@ -335,24 +335,48 @@ a
     list-style: none;
     position: absolute;
     width:79px;
-    height:70px;
-    background-color: rgb(17, 17, 24);
-    display: none;
-
+    height:70px;  
+    display: none;  
 }
-.sect li
+.typedonnee_menu
 {
+    background-color: rgba(144, 193, 250, 0.933);
+    list-style: none;
+    position: absolute;
+    width: 130px;
+    height: 50px;
+    display: none;
+}
+.sect li,.typedonnee_menu li
+{
+    background-color: rgb(17, 17, 24);
     display: block;
     text-align: center;
     width: 100%;
     border-radius: 5px;
 }
-.sect li a
+.typedonnee_menu li
+{
+    background:none;
+}
+.sect li a,.typedonnee_menu li a
 {
     color: rgba(144, 194, 250,0.656);
     font-size: 13px;
     padding: 0px 10px;
 
+}
+.typedonnee_menu li a
+{
+    color: rgb(17, 17, 24);
+    padding: 0px 15px;
+    font-size: 14px;
+}
+.typedonnee_menu li a:hover
+{
+    color: rgb(17, 17, 24);
+    border-bottom: 1px solid rgb(17, 17, 24) ;
+    border-top: 1px solid rgb(17, 17, 24) ;
 }
 .sect li a:hover
 {
@@ -378,4 +402,106 @@ a
 {
     background-color: rgba(144, 194, 250,0.656);
     color: rgb(17, 17, 24);
+}
+
+
+
+
+
+.connexionErreur
+{
+    width: 230px;
+    background:none;
+    color: rgba(144, 194, 250,0.656);
+    padding: 6px 0 ;
+    text-align: center;
+    display: none;
+    font-size: 13px;
+    
+}
+
+.connexion_nav
+{
+    background-color:rgb(17, 17, 24) ;
+}
+.connexion_div
+{   
+    width: 100%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-direction: column;
+}
+.connexion_div input
+{
+    display: block;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 6px;
+    border: none;
+    background:none;
+    border: 1px solid rgba(144, 194, 250,0.656);
+    color: rgba(144, 194, 250,0.656);
+   margin-left: 30px;
+    
+}
+input[type="submit"]
+{
+    
+    width: 162px;
+    
+}
+.connexion_body
+{
+    width: 100%;
+    height: 100%;
+}
+.formulaire
+{
+    margin-top: 50px;
+    
+} 
+.txt h2
+{
+    color: rgba(144, 194, 250,0.656);
+    font-weight: 300;
+    font-style: italic;
+} 
+.txt span
+{
+    color: rgb(17, 17, 24);
+}
+main p
+{
+    color: rgb(6, 6, 6);
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 600;
+}
+main
+{
+    margin-left: 10px;
+    text-align: center;
+
+}
+
+
+
+
+
+.buttonConnexion
+{
+    width: 162px;
+    padding: 8px;
+    background:none;
+    color: rgba(144, 194, 250,0.656);
+    border: 1px solid rgba(144, 194, 250,0.656);
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin:0px 10px 0px 0px;
+}
+.buttonConnexion:hover
+{
+    box-shadow: 0px 5px 5px rgb(10, 10, 10);
 }

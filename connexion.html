@@ -1,0 +1,25 @@
+<!DOCTYPE HTML LANG="fr">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gestions des notes</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="connexion_body">
+        <nav class="connexion_nav">
+            <div class="logo"><a href="#" title="FAST Gestion de Note">FAST-<span>GN</span></a></div>
+        </nav>
+        <div class="connexion_div">
+            <div class="txt"><h2>Veuillez entrer vos information de <span>connexion !</span></h2></div>
+            <div class="formulaire">
+                <div class="connexionErreur"></div>
+                <form method="post" action="index.html" onsubmit="return valid() " name="ConnexionForm">
+                    <input type="text" name="mat" placeholder="matricule de l'agent ?" aria-autocomplete="false" >
+                    <input type="password" name="passwd" placeholder="mot de passe ?" autocomplete="false">
+                    <input type="submit" value="Connexion">
+                </form>
+            </div>
+        </div>
+        <script src="script.js" async></script>
+        <main><p>Un site développé par les étudiants de l'Université Abdou Moumouni <br>afin de faciliter la gestion et le deploiement des notes des étudiants...</p></main>
+    </body>

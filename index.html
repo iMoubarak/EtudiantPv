@@ -21,8 +21,11 @@
                             <span class="button_menu_titre">Type Donnée</span>
                             <ion-icon name="caret-down-outline" class="caret_bas_typedonnee" ></ion-icon>
                             <ion-icon name="caret-forward-outline" class="button_menu_fermer"></ion-icon>
-                        </button>
-                    </li>
+                            </button>
+                            <ul class="typedonnee_menu">
+                                <li><a href="#" title="Saisie des notes des étudiants">Note Etudiant</a></li>
+                            </ul>
+                        </li>
                         <li><button type="button" class="button_menu">
                             <ion-icon name="analytics-outline"></ion-icon>
                             <span class="button_menu_titre">Rapport</span>
@@ -48,6 +51,7 @@
                                     <button type="button" class="button_menu1">
                                         <span class="button_menu_titre">Section</span>
                                         <ion-icon name="caret-down-outline" class="caret_bas_section"></ion-icon>
+                                        <ion-icon name="caret-forward-outline" class="button_menu_fermer_section"></ion-icon>
                                     </button>
                                     <ul class="sect">
                                         <li><a href="#">BGE</a></li>
@@ -59,11 +63,13 @@
                                     <button type="button" class="button_menu1">
                                        <span class="button_menu_titre">Matière</span>
                                        <ion-icon name="caret-down-outline" class="caret_bas_matiere"></ion-icon>
+                                       <ion-icon name="caret-forward-outline" class="button_menu_fermer"></ion-icon>
                                     </button>
                                 </li>
                                 <li><button type="button" class="button_menu1">
                                     <span class="button_menu_titre">Periode</span>
                                     <ion-icon name="caret-down-outline" class="caret_bas_periode"></ion-icon>
+                                    <ion-icon name="caret-forward-outline" class="button_menu_fermer"></ion-icon>
                                 </button></li>
                             </ul>
                     </div>
@@ -106,5 +112,6 @@
                 </div>
             </div>
         </div>
+        <script src="index-script.js" async></script>
     </body>
 </html>
