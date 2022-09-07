@@ -1,3 +1,4 @@
+<?php?>
 <!DOCTYPE HTML LANG="fr">
 <html>
     <head>
@@ -13,7 +14,7 @@
             <div class="txt"><h2>Veuillez entrer vos information de <span>connexion !</span></h2></div>
             <div class="formulaire">
                 <div class="connexionErreur"></div>
-                <form method="post" action="index.html" onsubmit="return valid() " name="ConnexionForm">
+                <form method="post" action="index.php" onsubmit="return valid() " name="ConnexionForm">
                     <input type="text" name="mat" placeholder="matricule de l'agent ?" aria-autocomplete="false" >
                     <input type="password" name="passwd" placeholder="mot de passe ?" autocomplete="false">
                     <input type="submit" value="Connexion">
