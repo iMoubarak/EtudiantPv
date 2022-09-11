@@ -48,6 +48,8 @@
                             </table>
                         </div>
                         <div>
+                            <button type="submit" class="btn_executer">Terminer</button>
+                            <button type="submit" class="btn_executer">Incomplet</button>
                             <button type="submit" class="btn_executer">Executer la validation</button>
                         </div>
                     </form>
