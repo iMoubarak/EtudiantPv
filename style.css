@@ -47,6 +47,20 @@ nav a
     overflow: hidden;
     white-space: nowrap;
 }
+.tableau_de_bord
+{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 70% 30%;
+}
+.evenement
+{
+    border-left: 1px solid rgba(17, 17, 24, 0.139);
+    display: flex;
+    justify-content: center;
+    
+}
 .parent
 {
     width: 100%;
@@ -550,6 +564,7 @@ a
      width: 100%;
      padding: 200px;
 }
+
 .fenetre:target
 {visibility: visible;opacity: 1;}
 .fenetre_content

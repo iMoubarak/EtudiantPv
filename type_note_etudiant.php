@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(@$_SESSION['autorisation']!="oui")
+{
+    header('location:connexion.php');
+    exit();
+}
     $tab = [
         'ordre' => [],
         'nomp' => [],

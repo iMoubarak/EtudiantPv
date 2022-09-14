@@ -1,4 +1,11 @@
-<?php?>
+<?php
+session_start();
+if(@$_SESSION['autorisation']!="oui")
+{
+    header('location:connexion.php');
+    exit();
+}
+?>
 <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
@@ -78,7 +85,7 @@
             <div id="add_etudiant" class="fenetre">
                 <div  class="fenetre_content">
                     <fieldset class="field_set">
-                    <form methode="post" action="">
+                    <form method="post" action="">
                     <h2 class="field_title">Ajouter Etudiant!</h2>
                         <table style="color:rgba(144, 193, 250, 0.517);">
                             <tr><td>Nom</td><td><input type="txt" name="nom_etudiant"  class="i_put"></td></tr>
@@ -102,6 +109,23 @@
                 <a href="#" class="fenetre_close">&times;</a>
             </div>
 
+            <!---->
+
+            <!--Ajouter agent-->
+            <div id="add_agent" class="fenetre">
+                <div  class="fenetre_content">
+                    <fieldset class="field_set">
+                    <form method="post" action="">
+                    <h2 class="field_title">Ajouter Agent!</h2>
+                        <table style="color:rgba(144, 193, 250, 0.517);">
+                            <tr><td>Nom</td><td><input type="txt" name="nom_agent"  class="i_put"></td></tr>
+                            <tr><td>Matricule</td><td><input type="number" name="mat_agent"  class="i_put"></td></tr>
+                        </table>
+                        <input type="submit" name="ajoutA" value="Ajouter" class="sub">
+                    </form>
+                </fieldset>
+                <a href="#" class="fenetre_close">&times;</a>
+            </div>
             <!---->
             
             

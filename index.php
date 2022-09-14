@@ -1,4 +1,11 @@
-<?php?>
+<?php
+session_start();
+if(@$_SESSION['autorisation']!="oui")
+{
+    header('location:connexion.php');
+    exit();
+}
+?>
     
     <!DOCTYPE HTML LANG="fr">
     <html>
@@ -9,7 +16,9 @@
         </head>
         <body>
                 <?php require("nav.php");?>
-                <div class="partie_tableau">
+                <div class="tableau_de_bord">
+                    <div></div>
+                    <div class="evenement"><span class="evenement_titre">Journal des évenement</span></div>
                     
                 </div>
             <script src="index-script.js" async></script>
