@@ -1,4 +1,46 @@
-<?php?>
+<?php
+session_start();
+@$mat=$_POST["mat"];
+@$passwd=$_POST["passwd"];
+@$connexion=$_POST["connexion"];
+$matdanger='';
+$passdanger='';
+$msg='';
+if(isset($connexion))
+{
+    if(!isset($mat))
+    {
+        $msg = "Champ obligatoire";
+        $matdanger="red";
+    }
+    if(!isset($passwd))
+    {
+        $msg = "Champ obligatoire";
+        $passdanger="red";
+    }
+    else
+    {
+        if($mat==="60507" && $passwd==="Azerty")
+        {
+            $_SESSION['autorisation'] = "oui";
+            $danger='';
+            $msg='';
+            header("location:index.php");
+        }
+        if($mat!=="60507")
+        {
+            $msg="Ce numéro de matricule n'existe pas";
+            $matdanger='red';
+        }
+        if($passwd!=="Azerty")
+        {
+            $msg="Mot de passe incorrect";
+            $passdanger='red';
+        }
+    }
+    
+}
+?>
 <!DOCTYPE HTML LANG="fr">
 <html>
     <head>
@@ -13,11 +55,11 @@
         <div class="connexion_div">
             <div class="txt"><h2>Veuillez entrer vos information de <span>connexion !</span></h2></div>
             <div class="formulaire">
-                <div class="connexionErreur"></div>
-                <form method="post" action="index.php" onsubmit="return valid() " name="ConnexionForm">
-                    <input type="text" name="mat" placeholder="matricule de l'agent ?" aria-autocomplete="false" >
-                    <input type="password" name="passwd" placeholder="mot de passe ?" autocomplete="false">
-                    <input type="submit" value="Connexion">
+                <div class="connexionErreur" style="display:block;"><?=$msg?></div>
+                <form method="post" action=""name="ConnexionForm">
+                    <input type="number" name="mat" placeholder="matricule de l'agent ?" aria-autocomplete="false" style="border: 1px solid <?=$matdanger?>;" >
+                    <input type="password" name="passwd" placeholder="mot de passe ?" autocomplete="false" style="border: 1px solid <?=$passdanger?>;">
+                    <input type="submit" name="connexion" value="Connexion">
                 </form>
             </div>
         </div>

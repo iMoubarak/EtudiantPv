@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(@$_SESSION['autorisation']!="oui")
+{
+    header('location:connexion.php');
+    exit();
+}
     $tab = [
         'ordre' => [],
         'nomp' => [],
@@ -48,6 +54,8 @@
                             </table>
                         </div>
                         <div>
+                            <button type="submit" class="btn_executer">Terminer</button>
+                            <button type="submit" class="btn_executer">Incomplet</button>
                             <button type="submit" class="btn_executer">Executer la validation</button>
                         </div>
                     </form>

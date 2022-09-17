@@ -1,4 +1,5 @@
-<?php?>
+<?php
+?>
                     <div class="div_send_search">
                         <ul>
                             <li><input type="search" class="input_search" placeholder="chercher un etudiant"></li>
