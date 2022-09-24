@@ -5,6 +5,20 @@ if(@$_SESSION['autorisation']!="oui")
     header('location:connexion.php');
     exit();
 }
+$user = 'root';
+$pass = '913437';
+$nomE = $_POST['nom_etudiant'];
+$Prenom = $_POST['prenom_etudiant'];
+$matE = $_POST['mat_etudiant'];
+$date_naissance = $_POST['date_naissance'];
+$lieu_naissance = $_POST['lieu_naissance'];
+$niveau = $_POST['select_niveau'];
+$promo = $_POST['promo_etudiant']; 
+$db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+    /*$statement = $db->prepare(($query));
+    $statement->execute($params);
+    $dbElement = $statement->fetchAll();*/
 ?>
 <!DOCTYPE HTML LANG="fr">
     <html>
@@ -89,15 +103,17 @@ if(@$_SESSION['autorisation']!="oui")
                     <h2 class="field_title">Ajouter Etudiant!</h2>
                         <table style="color:rgba(144, 193, 250, 0.517);">
                             <tr><td>Nom</td><td><input type="txt" name="nom_etudiant"  class="i_put"></td></tr>
+                            <tr><td>Prenom</td><td><input type="txt" name="prenom_etudiant"  class="i_put"></td></tr>
                             <tr><td>Matricule</td><td><input type="number" name="mat_etudiant"  class="i_put"></td></tr>
                             <tr><td>Promotion</td><td><input type="number" name="promo_etudiant"  class="i_put"></td></tr>
-                            <tr><td>Date et lieu de naissance</td><td><input type="date" name="date_naissance" class="i_put"></td></tr>
+                            <tr><td>Date de naissance</td><td><input type="date" name="date_naissance" class="i_put"></td></tr>
+                            <tr><td>Lieu de naissance</td><td><input type="txt" name="lieu_naissance" class="i_put"></td></tr>
                             <tr>
                                 <td>Niveau:</td>
-                                <td><select class="i_put">
-                                        <option value="1">Niveau 1</option>
-                                        <option value="2">Niveau 2</option>
-                                        <option value="3">Niveau 3</option>
+                                <td><select class="i_put" name="select_niveau">
+                                        <option value="1">Licence 1</option>
+                                        <option value="2">Licence 2</option>
+                                        <option value="3">Licence 3</option>
                                         </select>
                                 </td>
                             </tr>
@@ -107,6 +123,14 @@ if(@$_SESSION['autorisation']!="oui")
                     </form>
                 </fieldset>
                 <a href="#" class="fenetre_close">&times;</a>
+                <?php if(isset($_POST['ajoutE'])):?>
+        
+                    <?php  if(!empty($_POST['nom_etudiant']) && !empty($_POST['prenom_etudiant']) && !empty($_POST['mat_etudiant']) && !empty($_POST['promo_etudiant']) && !empty($_POST['date_naissance']) && !empty($_POST['lieu_naissance']) && !empty($_POST['select_niveau'])) : ?>
+                        <br><div class="alert alert-success" style="text-align: center;">Ajouter avec succès</div>
+                    <?php else :?>
+                        <br><div class="alert alert-danger" style="text-align: center;">Remplissez toutes les cases</div>
+                    <?php endif;?>
+                <?php endif; ?>
             </div>
 
             <!---->
@@ -124,6 +148,8 @@ if(@$_SESSION['autorisation']!="oui")
                         <input type="submit" name="ajoutA" value="Ajouter" class="sub">
                     </form>
                 </fieldset>
+                
+
                 <a href="#" class="fenetre_close">&times;</a>
             </div>
             <!---->

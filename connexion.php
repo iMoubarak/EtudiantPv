@@ -6,6 +6,13 @@ session_start();
 $matdanger='';
 $passdanger='';
 $msg='';
+$user = 'root';
+$pass = '913437';
+$query = null;
+
+$db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$dbpass = $db->query('select * from Mot')->fetchAll();
+$dbmat = null;
 if(isset($connexion))
 {
     if(!isset($mat))
@@ -20,7 +27,7 @@ if(isset($connexion))
     }
     else
     {
-        if($mat==="60507" && $passwd==="Azerty")
+        if($mat===60507 && $passwd===$dbpass[''])
         {
             $_SESSION['autorisation'] = "oui";
             $danger='';
