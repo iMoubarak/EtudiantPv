@@ -19,7 +19,7 @@
                             </a></li>
                         <li><button type="button" class="button_menuType">
                             <ion-icon name="file-tray-stacked-outline"></ion-icon>
-                            <span class="button_menu_titre">Type Donnée</span>
+                            <span class="button_menu_titre" title="Type de donnée">T-Donnée</span>
                             <ion-icon name="caret-down-outline" class="caret_bas_typedonnee" ></ion-icon>
                             <ion-icon name="caret-forward-outline" class="button_menu_fermer"></ion-icon>
                             </button>

@@ -20,6 +20,19 @@ if(@$_SESSION['autorisation']!="oui")
         $tab['note_champ'][] = "<input type=\"text\" name=\"note[]\" class=\"case_saisi_note\" placeholder=\"/20\">";
         $count++;
     }
+    $user = 'root';
+    $pass = '913437';
+    try {
+        $db = new PDO("mysql:host=localhost;dbname=Test",$user,$pass);
+        foreach($db->query('select * from etudiant') as $row)
+        {
+            var_dump($row);
+        }
+    } catch(PDOException $e)
+    {
+        print("Erreur : ") . $e->getMessage() . "<br>";
+        die;
+    }
 ?>
 <!DOCTYPE HTML LANG="fr">
 <html>
