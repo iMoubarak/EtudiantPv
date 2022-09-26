@@ -1,19 +1,9 @@
 <?php
 session_start();
-if(@$_SESSION['autorisation']!="oui")
-{
-    header('location:connexion.php');
-    exit();
-}
+require('auth.php');
+forcer_connection();
 $user = 'root';
 $pass = '913437';
-$nomE = $_POST['nom_etudiant'];
-$Prenom = $_POST['prenom_etudiant'];
-$matE = $_POST['mat_etudiant'];
-$date_naissance = $_POST['date_naissance'];
-$lieu_naissance = $_POST['lieu_naissance'];
-$niveau = $_POST['select_niveau'];
-$promo = $_POST['promo_etudiant']; 
 $db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
     /*$statement = $db->prepare(($query));
@@ -64,7 +54,7 @@ $db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAUL
                                 <a href="#ouvrir_periode" class="icon_reglage_button" style="text-decoration:none;color:rgb(17, 17, 24) ;"><ion-icon name="open-outline"></ion-icon></a>
                                 </button>
                             </div>
-                            <div class="div_titre_reglage_button"><span class="titre_reglage_option_button">Ouverture de la saisie d'une période</span></div>
+                            <div class="div_titre_reglage_button"><span class="titre_reglage_option_button">Ouverture de saisie d'une période</span></div>
                             
                         </div>
 
@@ -106,8 +96,7 @@ $db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAUL
                             <tr><td>Prenom</td><td><input type="txt" name="prenom_etudiant"  class="i_put"></td></tr>
                             <tr><td>Matricule</td><td><input type="number" name="mat_etudiant"  class="i_put"></td></tr>
                             <tr><td>Promotion</td><td><input type="number" name="promo_etudiant"  class="i_put"></td></tr>
-                            <tr><td>Date de naissance</td><td><input type="date" name="date_naissance" class="i_put"></td></tr>
-                            <tr><td>Lieu de naissance</td><td><input type="txt" name="lieu_naissance" class="i_put"></td></tr>
+                            <tr><td>Date et lieu de naissance </td><td><input type="txt" name="date_naissance" class="i_put"></td></tr>
                             <tr>
                                 <td>Niveau:</td>
                                 <td><select class="i_put" name="select_niveau">
@@ -125,8 +114,9 @@ $db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAUL
                 <a href="#" class="fenetre_close">&times;</a>
                 <?php if(isset($_POST['ajoutE'])):?>
         
-                    <?php  if(!empty($_POST['nom_etudiant']) && !empty($_POST['prenom_etudiant']) && !empty($_POST['mat_etudiant']) && !empty($_POST['promo_etudiant']) && !empty($_POST['date_naissance']) && !empty($_POST['lieu_naissance']) && !empty($_POST['select_niveau'])) : ?>
+                    <?php  if(!empty($_POST['nom_etudiant']) && !empty($_POST['prenom_etudiant']) && !empty($_POST['mat_etudiant']) && !empty($_POST['promo_etudiant']) && !empty($_POST['date_naissance']) && !empty($_POST['select_niveau'])) : ?>
                         <br><div class="alert alert-success" style="text-align: center;">Ajouter avec succès</div>
+                        <?php require_once("fonction.php");remplir_form_etudiant($_POST,$db);?>
                     <?php else :?>
                         <br><div class="alert alert-danger" style="text-align: center;">Remplissez toutes les cases</div>
                     <?php endif;?>

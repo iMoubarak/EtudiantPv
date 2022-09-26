@@ -1,5 +1,9 @@
 <?php
-    require('fonction.php');
+if(session_status() === PHP_SESSION_NONE)
+session_start();
+require_once('auth.php');
+forcer_connection();
+require('fonction.php');
 ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -38,7 +42,7 @@
                     </ul>
                 </div>
                 <div class="log_out">
-                    <a type="button" class="button_log_out" href="connexion.php" style="text-decoration:none;">
+                    <a type="button" class="button_log_out" href="deconnexion.php" style="text-decoration:none;">
                         <ion-icon name="exit-outline"></ion-icon>
                         <span class="button_log_out_titre">Se deconnecter</span>
                     </a>

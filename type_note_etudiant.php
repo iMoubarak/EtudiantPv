@@ -1,13 +1,10 @@
 <?php
 session_start();
-if(@$_SESSION['autorisation']!="oui")
-{
-    header('location:connexion.php');
-    exit();
-}
+require_once('auth.php');
+forcer_connection();
     $user = 'root';
     $pass = '913437';
-    $query = "select * from Etudiants";
+    $query = "select * from Etudiants order by NomE";
     $dbElement = null;
     $params = [];
     $db = new PDO("mysql:host=localhost;dbname=PVFAST",$user,$pass,[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -19,7 +16,6 @@ if(@$_SESSION['autorisation']!="oui")
     $statement = $db->prepare(($query));
     $statement->execute($params);
     $dbElement = $statement->fetchAll();
-    
 ?>
 <!DOCTYPE HTML LANG="fr">
 <html>
@@ -94,12 +90,14 @@ if(@$_SESSION['autorisation']!="oui")
                                     </tr>
                                 </thead>
                                 <tbody>
+                                        <?php $i=0;?>
                                         <?php foreach($dbElement as $row):?>
+                                            <?php $i++;?>
                                             <tr>
-                                                <td>1</td>
+                                                <td><?=$i?></td>
                                                 <td><?=$row['NomE'] .' '. $row['PrenomE']?></td>
                                                 <td><?=$row['MatriculeE']?></td>
-                                                <td><?=$row['Note']?></td>
+                                                <td><input type="number" name="noteE[]" class="case_saisi_note" placeholder="/20" value="<?=$row['Note']?>"></td>
                                             </tr>
                                         <?php endforeach;?>                  
                                 </tbody>

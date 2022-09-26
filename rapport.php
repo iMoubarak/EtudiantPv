@@ -1,10 +1,7 @@
 <?php
 session_start();
-if(@$_SESSION['autorisation']!="oui")
-{
-    header('location:connexion.php');
-    exit();
-}
+require('auth.php');
+forcer_connection();
 ?>
     
     <!DOCTYPE HTML LANG="fr">
