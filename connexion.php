@@ -3,12 +3,22 @@ session_start();
 $msg = '';
 $dangermat = '';
 $dangerpass = '';
+$test = false;
 $db = new PDO("mysql:host=localhost;dbname=PVFAST",'root','913437',[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 $dbpasses = $db->query('select * from Mot_de_passe');
+$dbmat = $db->query("select * from Agents");
+foreach($dbmat as $mat)
+{
+    if($mat['IdAgent']==$_POST['mat'])
+    {
+        $test = true;
+        break;
+    }
+}
 foreach($dbpasses as $dbpass);
 if(!empty($_POST['mat']) && !empty($_POST['passwd']))
 {
-    if($_POST['mat']==='60507' && $_POST['passwd']===$dbpass['Mot_de_passe'])
+    if($test===true && $_POST['passwd']===$dbpass['pass'])
     {
             $_SESSION['autorisation'] = "oui";
             header("location:index.php");
@@ -16,17 +26,32 @@ if(!empty($_POST['mat']) && !empty($_POST['passwd']))
     }
     else
     {
-        if($_POST['mat']!=='60507')
+        if($test!==true && $_POST['passwd']!==$dbpass['pass'])
         {
-            $msg = 'Numéro de matricule incorrect';
+            $msg = 'Numéro de matricule et mot de passe incorrect';
             $dangermat = 'red';
+            $dangerpass = 'red';
         }
         else
         {
-            if($_POST['passwd']!==$dbpass['Mot_de_passe'])
+            if($_POST['passwd']!==$dbpass['pass'])
             {
                 $msg = 'Mot de passe incorrect';
                 $dangerpass = 'red';
+            }
+            else
+            {
+                if($test!==true)
+                {
+                    $msg = 'Numéro de matricule incorrect';
+                    $dangermat = 'red';
+                }
+                else
+                {
+                    $msg = '';
+                    $dangermat = '';
+                    $dangerpass = '';
+                }
             }
         }
     }   

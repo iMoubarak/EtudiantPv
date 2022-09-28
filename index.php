@@ -3,7 +3,7 @@ session_start();
 require_once('auth.php');
 forcer_connection();
 $db = new PDO("mysql:host=localhost;dbname=PVFAST",'root','913437',[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-$dbElement = $db->query('select * from Evenement');
+$dbElement = $db->query('select * from Evenement order by id desc limit 4');
 ?>
     
     <!DOCTYPE HTML LANG="fr">
@@ -21,11 +21,11 @@ $dbElement = $db->query('select * from Evenement');
                         <div class="evenement">
                             <div class="evenement_titre"><span class="">Evenement</span><br></div>
                             <div class="evenement_msg">
-                                <ul style="list-style: none;">
+                                <ul>
                                     <?php foreach($dbElement as $row):?>
                                         <li>
                                             <span title="<?=$row['msg']?>"><?=$row['titre']?></span>
-                                        </li>
+                                        </li><br>
                                     <?php endforeach;?>
                                 </ul>
                             </div>

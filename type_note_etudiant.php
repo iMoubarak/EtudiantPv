@@ -16,6 +16,21 @@ forcer_connection();
     $statement = $db->prepare(($query));
     $statement->execute($params);
     $dbElement = $statement->fetchAll();
+    $test=false;
+    if(isset($_POST['valider']))
+    {
+        if(!empty($_POST['section']) && !empty($_POST['semestre']) && !empty($_POST['session']) && !empty($_POST['matiere']) && !empty($_POST['periode']))
+        {
+            if(isset($_POST['section']) && isset($_POST['semestre']) && isset($_POST['session']) && isset($_POST['matiere']) && isset($_POST['periode']))
+                $test = true;
+            else
+                $test = false;
+
+        }
+        else
+            $test = false;
+    }
+
 ?>
 <!DOCTYPE HTML LANG="fr">
 <html>
@@ -29,41 +44,49 @@ forcer_connection();
             <div class="partie_tableau">
                 <div class="choix_niveau">
                 <div class="niveau">
-                            <ul class="niv_ul">
-                                <li>
-                                    <button type="button" class="button_menu1">
-                                        <span class="button_menu_titre">Section</span>
-                                        <ion-icon name="caret-down-outline" class="caret_bas_section"></ion-icon>
-                                        <ion-icon name="caret-forward-outline" class="button_menu_fermer_section"></ion-icon>
-                                    </button>
-                                    <ul class="sect">
-                                        <li><a href="#">MI</a></li> 
-                                    </ul>
-                                </li>
-                                <li>
-                                    <button type="button" class="button_menu1">
-                                       <span class="button_menu_titre">Niveau</span>
-                                       <ion-icon name="caret-down-outline" class="caret_bas_niveau_etude"></ion-icon>
-                                       <ion-icon name="caret-forward-outline" class="button_menu_fermer_niveau_etude" style="display:none;"></ion-icon>
-                                    </button>
-                                    <ul class="niveau_etude">
-                                        <li><a href="#">Niveau 1</a></li>
-                                        <li><a href="#">Niveau 2</a></li>
-                                        <li><a href="#">Niveau 3</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <button type="button" class="button_menu1">
-                                    <span class="button_menu_titre">Periode</span>
-                                    <ion-icon name="caret-down-outline" class="caret_bas_periode"></ion-icon>
-                                    <ion-icon name="caret-forward-outline" class="button_menu_fermer_periode" style="display:none;"></ion-icon>
-                                    </button>
-                                    <ul class="periode">
-                                        <li><a href="#">22-23</a></li> 
-                                    </ul>
-                                </li>
-                            </ul>
-                            
+                        <form method="POST">
+                            <button type="submit" style="background: none;border:none;" name="valider">
+                                <ion-icon name="caret-forward-outline" title="valider"></ion-icon>
+                            </button>
+                            <button type="button" class="button_choix">
+                                <span class="span_choix">Section : </span>
+                                <select name="section"  class="select_choix">
+                                    <option value="1">MI</option>
+                                    <option value="2">MPC</option>
+                                    <option value="3">BGE</option>
+                                </select>
+                            </button>
+                            <button type="button" class="button_choix">
+                                <span class="span_choix">Semestre</span>
+                                <select name="semestre" class="select_choix" >
+                                    <option value="1">S-1</option>
+                                    <option value="2">S-2</option>
+                                    <option value="3">S-3</option>
+                                    <option value="3">S-4</option>
+                                    <option value="3">S-5</option>
+                                    <option value="3">S-6</option>
+                                </select>
+                            </button>
+                            <button type="button" class="button_choix">
+                                <span class="span_choix">Session</span>
+                                <select name="session"  class="select_choix">
+                                    <option value="1">Session 1</option>
+                                    <option value="2">Session 2</option>
+                                </select>
+                            </button>
+                            <button type="button" class="button_choix">
+                                <span class="span_choix">Matière</span>
+                                <select name="matiere"  class="select_choix">
+                                    <option value="1">Analyse</option>
+                                </select>
+                            </button>
+                            <button type="button" class="button_choix">
+                                <span class="span_choix">Période</span>
+                                <select name="periode" class="select_choix">
+                                    <option value="1">2021-2022</option>
+                                </select>
+                            </button>
+                        </form>  
                     </div>
                     <div class="div_send_search">
                         <form method="get" action="">
@@ -77,38 +100,41 @@ forcer_connection();
                     </div>
                 </div>
                 <div class="tableau">
-                    <form method="get" name="form_tableau" class="tform">
-                        <div class="form_table">
-                            <table class="table table-striped" cellspacing="0px">
+                    <?php if($test) :?>
+                        <form method="get" name="form_tableau" class="tform">
+                            <div class="form_table">
+                                <table class="table table-striped" cellspacing="0px">
 
-                                <thead>
-                                    <tr class="titre_tableau">
-                                        <td>Ordre</td>
-                                        <td>Nom & Prenom</td>
-                                        <td>Matricule</td>
-                                        <td>Notes</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                        <?php $i=0;?>
-                                        <?php foreach($dbElement as $row):?>
-                                            <?php $i++;?>
-                                            <tr>
-                                                <td><?=$i?></td>
-                                                <td><?=$row['NomE'] .' '. $row['PrenomE']?></td>
-                                                <td><?=$row['MatriculeE']?></td>
-                                                <td><input type="number" name="noteE[]" class="case_saisi_note" placeholder="/20" value="<?=$row['Note']?>"></td>
-                                            </tr>
-                                        <?php endforeach;?>                  
-                                </tbody>
-                            </table>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn_executer">Terminer</button>
-                            <button type="submit" class="btn_executer">Incomplet</button>
-                            <button type="submit" class="btn_executer">Executer la validation</button>
-                        </div>
-                    </form>
+                                    <thead>
+                                        <tr class="titre_tableau">
+                                            <td>Ordre</td>
+                                            <td>Nom & Prenom</td>
+                                            <td>Matricule</td>
+                                            <td>Notes</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            <?php $i=0;?>
+                                            <?php foreach($dbElement as $row):?>
+                                                <?php $i++;?>
+                                                <tr>
+                                                    <td><?=$i?></td>
+                                                    <td><?=$row['NomE'] .' '. $row['PrenomE']?></td>
+                                                    <td><?=$row['MatriculeE']?></td>
+                                                    <td><input type="number" name="noteE[]" class="case_saisi_note" placeholder="/20" value="<?=$row['Note']?>"></td>
+                                                </tr>
+                                            <?php endforeach;?>                  
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn_executer">Terminer</button>
+                                <button type="submit" class="btn_executer">Incomplet</button>
+                                <button type="submit" class="btn_executer">Executer la validation</button>
+                            </div>
+                        </form>
+                    <?php else :?>
+                    <?php endif;?>
                 </div>
             </div>
         <script src="index-script.js" async></script>
