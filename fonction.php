@@ -22,5 +22,4 @@ HTML;
         return $page;
     }
     
-    
 ?>
