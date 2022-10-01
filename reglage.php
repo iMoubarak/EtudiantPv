@@ -26,12 +26,11 @@ $alertmsg='';
 <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
-            <meta charset="utf-8">
+            <?php require("head.php");?>
             <title>Reglage</title>
-            <link rel="stylesheet" href="style.css">
         </head>
         <body>
-                <?php require("nav.php");?>
+            <?php require("nav.php");?>
                 <div class="div_reglage">
                         <?php if($AdminPassTest===false) :?>
                             <?php $AdminPassTest=false;?>

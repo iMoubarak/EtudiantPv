@@ -2,6 +2,7 @@
 session_start();
 require_once('auth.php');
 forcer_connection();
+$_SESSION['mode'] = '';
 $db = new PDO("mysql:host=localhost;dbname=PVFAST",'root','913437',[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 $dbElement = $db->query('select * from Evenement order by id desc limit 4');
 ?>
@@ -9,9 +10,8 @@ $dbElement = $db->query('select * from Evenement order by id desc limit 4');
     <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
-            <meta charset="utf-8">
+            <?php require("head.php");?>
             <title>Gestions des notes</title>
-            <link rel="stylesheet" href="style.css">
         </head>
         <body>
                 <?php require("nav.php");?>

@@ -7,12 +7,11 @@ forcer_connection();
     <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
-            <meta charset="utf-8">
+            <?php require("head.php");?>
             <title>Rapport</title>
-            <link rel="stylesheet" href="style.css">
         </head>
         <body>
-                <?php require("nav.php");?>
+            <?php require("nav.php");?>
                 <div class="tableau_rapport">
                     <div>
                     <form method="POST">

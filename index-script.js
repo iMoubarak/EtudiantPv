@@ -4,6 +4,7 @@ let caret_bas_section = document.querySelector('.caret_bas_section')
 let caret_bas_niveau_etude = document.querySelector('.caret_bas_niveau_etude')
 let caret_bas_periode = document.querySelector('.caret_bas_periode')
 
+
 let typedonnee_menu = document.querySelector('.typedonnee_menu')
 let section_menu = document.querySelector('.sect')
 let niveau_etude_menu = document.querySelector('.niveau_etude');
@@ -30,43 +31,7 @@ function ouvrir_typedonnee_menu()
     button_menu_fermer.style.display = "block"
 }
         //Section
-caret_bas_section.addEventListener('click',ouvrir_section_menu => {
-    caret_bas_section.style.display = "none"
-    button_menu_fermer_section.style.display = "block"
-    section_menu.style.display = "block"
 
-})
-button_menu_fermer_section.addEventListener('click', fermer_section_menu => {
-    caret_bas_section.style.display = "block"
-    button_menu_fermer_section.style.display = "none"
-    section_menu.style.display = "none"
-
-})
-        //Niveau etude
-        caret_bas_niveau_etude.addEventListener('click',ouvrir_niveau_etude_menu => {
-            caret_bas_niveau_etude.style.display = "none"
-            button_menu_fermer_niveau_etude.style.display = "block"
-            niveau_etude_menu.style.display = "block"
-        
-        })
-        button_menu_fermer_niveau_etude.addEventListener('click', fermer_niveau_etude_menu => {
-            caret_bas_niveau_etude.style.display = "block"
-            button_menu_fermer_niveau_etude.style.display = "none"
-            niveau_etude_menu.style.display = "none"
-        })
-
-        //Periode
-        caret_bas_periode.addEventListener('click',ouvrir_periode_menu => {
-            caret_bas_periode.style.display = "none"
-            button_menu_fermer_periode.style.display = "block"
-            periode_menu.style.display = "block"
-        
-        })
-        button_menu_fermer_periode.addEventListener('click', fermer_periode_menu => {
-            caret_bas_periode.style.display = "block"
-            button_menu_fermer_periode.style.display = "none"
-            periode_menu.style.display = "none"
-        })
 //-------Fonction de fermeture button
 function fermer_typedonnee()
 {
@@ -81,9 +46,34 @@ let etudiant = {
     mat:"60507",
     note:15
 }
-let search_button = document.querySelector('.input_search')
-let icon_search = document.querySelector('.icon_search')
-icon_search.addEventListener('click' ,ouvrir_recherche => {
-    search_button.style.display = "block"
-    search_button.focus
-})
+try {
+    let search_button = document.querySelector('.input_search')
+    let icon_search = document.querySelector('.icon_search')
+    icon_search.addEventListener('click' ,ouvrir_recherche => {
+        search_button.style.display = "block"
+        search_button.focus
+    })
+} catch (error) {
+
+}
+let stockage = window.localStorage;
+if(stockage.getItem("style")!=undefined)
+    document.getElementById('lien').setAttribute('href',stockage.getItem('style'))
+else
+    stockage.setItem("style",'style.css')
+
+function switcher()
+{
+    let stylerecent = document.getElementById('lien').getAttribute('href').trim()
+    if(stylerecent == ('style.css'))
+    {
+        document.getElementById('lien').setAttribute('href','style1.css')
+        stockage.setItem("style",'style1.css')
+    }
+    else
+    {
+        document.getElementById('lien').setAttribute('href','style.css')
+        stockage.setItem("style",'style.css')
+    }
+
+}   

@@ -70,13 +70,19 @@ if(est_connecter())
 <!DOCTYPE HTML LANG="fr">
 <html>
     <head>
-        <meta charset="utf-8">
+        <?php require("head.php");?>
         <title>Gestions des notes</title>
-        <link rel="stylesheet" href="style.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </head>
     <body class="connexion_body">
-        <nav class="connexion_nav">
+        <nav>
             <div class="logo"><a href="#" title="FAST Gestion de Note">FAST-<span>GN</span></a></div>
+            <div class="navigation">
+                <div>
+                    <button type="submit" class="mode_btn" onclick="switcher()"><ion-icon name="contrast-outline"></ion-icon></button>
+                </div>
+            </div>
         </nav>
         <div class="connexion_div">
             <div class="txt"><h2>Veuillez entrer vos information de <span>connexion !</span></h2></div>
