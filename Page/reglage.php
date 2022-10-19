@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('auth.php');
+require('../Fonction/auth.php');
 forcer_connection();
 $user = 'root';
 $pass = '913437';
@@ -26,16 +26,16 @@ $alertmsg='';
 <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
-            <?php require("head.php");?>
+            <?php require("../En-tete/head.php");?>
             <title>Reglage</title>
         </head>
         <body>
-            <?php require("nav.php");?>
+            <?php require("../En-tete/nav.php");?>
                 <div class="div_reglage">
                         <?php if($AdminPassTest===false) :?>
                             <?php $AdminPassTest=false;?>
                             <div  class="fenetre1">
-                                <div  class="fenetre_conten">
+                                <div  class="fenetre_content">
                                         <fieldset class="field_set">
                                         <form method="post" action="">
                                         <h2 class="field_title">Mot de passe de l'administrateur réquis !
@@ -115,7 +115,7 @@ $alertmsg='';
                                 </div>
                             <?php endif;?>
                 </div>
-                        <script src="index-script.js" async></script>
+                        <script src="../Script/index-script.js" async></script>
                         <!--ajouter etudiant--> 
                         <div id="add_etudiant" class="fenetre">
                             <div  class="fenetre_content">
@@ -143,7 +143,7 @@ $alertmsg='';
                                     </form>
                                     <?php if(isset($_POST['ajoutE'])):?>
                                         <?php  if(!empty($_POST['nom_etudiant']) && !empty($_POST['prenom_etudiant']) && !empty($_POST['mat_etudiant']) && !empty($_POST['promo_etudiant']) && !empty($_POST['date_naissance']) && !empty($_POST['select_niveau'])) : ?>
-                                            <?php require_once("fonction.php");?>
+                                            <?php require_once("../Fonction/fonction.php");?>
                                             <?=remplir_form_etudiant($_POST,$db)?>
                                         <?php endif;?>
                                     <?php endif; ?>
@@ -169,7 +169,7 @@ $alertmsg='';
                                 </form>
                                 <?php if(isset($_POST['ajoutA'])):?>
                                     <?php  if(!empty($_POST['nom_agent']) && !empty($_POST['prenom_agent']) && !empty($_POST['mat_agent'])) : ?>
-                                        <?php require_once("fonction.php");?>
+                                        <?php require_once("../Fonction/fonction.php");?>
                                         <?=remplir_form_agent($_POST,$db)?>
                                     <?php endif;?>
                                 <?php endif; ?>
@@ -194,7 +194,7 @@ $alertmsg='';
                                 </form>
                                 <?php if(isset($_POST['ChangeMot'])):?>
                                     <?php  if(!empty($_POST['new_pass']) && !empty($_POST['old_pass']) && !empty($_POST['verify_pass'])) : ?>
-                                        <?php require_once("fonction.php");?>
+                                        <?php require_once("../Fonction/fonction.php");?>
                                         <?=remplir_form_mot_de_passe($_POST,$db)?>
                                     <?php endif;?>
                                 <?php endif; ?>

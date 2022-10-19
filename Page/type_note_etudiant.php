@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('auth.php');
+require_once('../Fonction/auth.php');
 forcer_connection();
     $user = 'root';
     $pass = '913437';
@@ -30,11 +30,11 @@ forcer_connection();
 <!DOCTYPE HTML LANG="fr">
 <html>
     <head>
-        <?php require("head.php");?>
+        <?php require("../En-tete/head.php");?>
         <title>Notes Etudiants</title>
     </head>
     <body>
-            <?php require("nav.php");?>
+            <?php require("../En-tete/nav.php");?>
             <div class="partie_tableau">
                 <div class="choix_niveau">
                         <div class="niveau">
@@ -130,6 +130,6 @@ forcer_connection();
                     <?php endif;?>
                 </div>
             </div>
-        <script src="index-script.js" ></script>
+        <script src="../Script/index-script.js" ></script>
     </body>
 </html>

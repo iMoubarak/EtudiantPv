@@ -1,17 +1,17 @@
 <?php
 session_start();
-require('auth.php');
+require('../Fonction/auth.php');
 forcer_connection();
 ?>
     
     <!DOCTYPE HTML LANG="fr">
     <html>
         <head>
-            <?php require("head.php");?>
+            <?php require("../En-tete/head.php");?>
             <title>Rapport</title>
         </head>
         <body>
-            <?php require("nav.php");?>
+            <?php require("../En-tete/nav.php");?>
                 <div class="tableau_rapport">
                     <div>
                     <form method="POST">
@@ -40,8 +40,8 @@ forcer_connection();
                         </div>
                     </div>
                 </div>
-            <script src="index-script.js" async></script>
+            <script src="../Script/index-script.js" async></script>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script src="graphe.js"></script>
+            <script src="../Script/graphe.js"></script>
         </body>
     </html>

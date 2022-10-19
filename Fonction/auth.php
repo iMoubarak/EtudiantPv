@@ -7,7 +7,7 @@ function forcer_connection():void
 {
     if(!est_connecter())
     {
-        header('location:connexion.php');
+        header('location:../PageConnexionDeconnexion/connexion.php');
         exit();
     }
 }

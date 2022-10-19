@@ -60,20 +60,20 @@ let stockage = window.localStorage;
 if(stockage.getItem("style")!=undefined)
     document.getElementById('lien').setAttribute('href',stockage.getItem('style'))
 else
-    stockage.setItem("style",'style.css')
+    stockage.setItem("style",'../style.css')
 
 function switcher()
 {
     let stylerecent = document.getElementById('lien').getAttribute('href').trim()
-    if(stylerecent == ('style.css'))
+    if(stylerecent == ('../style.css'))
     {
-        document.getElementById('lien').setAttribute('href','style1.css')
-        stockage.setItem("style",'style1.css')
+        document.getElementById('lien').setAttribute('href','../style1.css')
+        stockage.setItem("style",'../style1.css')
     }
     else
     {
-        document.getElementById('lien').setAttribute('href','style.css')
-        stockage.setItem("style",'style.css')
+        document.getElementById('lien').setAttribute('href','../style.css')
+        stockage.setItem("style",'../style.css')
     }
 
 }   

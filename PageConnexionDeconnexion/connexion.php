@@ -4,8 +4,8 @@ $msg = '';
 $dangermat = '';
 $dangerpass = '';
 $test = false;
+$password = '$2y$10$D98Me4/fKKvp/.XVsUAuluSAN8rr.CxdGMxlb1WE2zcQVu7/4jt5K';
 $db = new PDO("mysql:host=localhost;dbname=PVFAST",'root','913437',[PDO::ATTR_DEFAULT_FETCH_MODE=>PDO::FETCH_ASSOC,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
-$dbpasses = $db->query('select * from Mot_de_passe');
 $dbmat = $db->query("select * from Agents");
 foreach($dbmat as $mat)
 {
@@ -15,18 +15,17 @@ foreach($dbmat as $mat)
         break;
     }
 }
-foreach($dbpasses as $dbpass);
 if(!empty($_POST['mat']) && !empty($_POST['passwd']))
 {
-    if($test===true && $_POST['passwd']===$dbpass['pass'])
+    if($test===true && password_verify($_POST['passwd'],$password)===true)
     {
             $_SESSION['autorisation'] = "oui";
-            header("location:index.php");
+            header("location:../index.php");
             exit();
     }
     else
     {
-        if($test!==true && $_POST['passwd']!==$dbpass['pass'])
+        if($test!==true && password_verify($_POST['passwd'],$password)===false)
         {
             $msg = 'Numéro de matricule et mot de passe incorrect';
             $dangermat = 'red';
@@ -34,7 +33,7 @@ if(!empty($_POST['mat']) && !empty($_POST['passwd']))
         }
         else
         {
-            if($_POST['passwd']!==$dbpass['pass'])
+            if(!password_verify($_POST['passwd'],$password))
             {
                 $msg = 'Mot de passe incorrect';
                 $dangerpass = 'red';
@@ -60,17 +59,17 @@ else
 {
     $msg = 'Veuillez remplir ces champs';
 }
-require_once('auth.php');
+require_once('../Fonction/auth.php');
 if(est_connecter())
 {
-    header('location:index.php');
+    header('location:../index.php');
     exit();
 }
 ?>
 <!DOCTYPE HTML LANG="fr">
 <html>
     <head>
-        <?php require("head.php");?>
+        <?php require("../En-tete/head.php");?>
         <title>Gestions des notes</title>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -95,6 +94,6 @@ if(est_connecter())
                 </form>
             </div>
         </div>
-        <script src="script.js" async></script>
+        <script src="../Script/script.js" async></script>
         <main><h3>Un site développé par les étudiants de l'Université Abdou Moumouni <br>afin de faciliter la gestion et le deploiement des notes des étudiants...</h3></main>
     </body>
